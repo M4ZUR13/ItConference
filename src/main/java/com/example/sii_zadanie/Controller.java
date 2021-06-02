@@ -33,6 +33,7 @@ public class Controller {
         zapis.println(user.getEmail());
         zapis.println("Zostales poprawnie zapisany na prelekcje!");
         zapis.close();
+        //userService.czyIstnieje(user.getLogin(), user.getEmail());
 
         userService.addUser(user);
 
@@ -43,6 +44,12 @@ public class Controller {
     public void deleteStudent(@PathVariable ("id") long id){
 
         userService.delete(id);
+    }
+
+    @GetMapping ("users/{login}")
+    public List<User> findUser(@PathVariable String login){
+
+        return userService.specificUser(login);
     }
 
 

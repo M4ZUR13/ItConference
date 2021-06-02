@@ -36,6 +36,13 @@ public class UserService {
 
 
 
+    public List<User> specificUser(String login){
+
+        return repository.findByLogin(login);
+    }
+
+
+
 
 
 
