@@ -1,6 +1,10 @@
-package com.example.sii_zadanie;
+package com.example.sii_zadanie.Controller;
 
+
+import com.example.sii_zadanie.User.User;
+import com.example.sii_zadanie.Service.UserService;
 import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.File;
@@ -8,10 +12,10 @@ import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @AllArgsConstructor
+
 public class Controller {
 
     private UserService userService;
@@ -33,8 +37,7 @@ public class Controller {
         zapis.println(user.getEmail());
         zapis.println("Zostales poprawnie zapisany na prelekcje!");
         zapis.close();
-        //userService.czyIstnieje(user.getLogin(), user.getEmail());
-
+       if((userService.numberOfUsers(user.getIdPrelekcji()).size())!=5)
         userService.addUser(user);
 
     }
@@ -51,6 +54,9 @@ public class Controller {
 
         return userService.specificUser(login);
     }
+
+
+
 
 
 

@@ -1,4 +1,4 @@
-package com.example.sii_zadanie;
+package com.example.sii_zadanie.User;
 
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
@@ -19,14 +19,14 @@ public class User {
     private String login;
     private String email;
     private String sciezka;
-    private long id_prelekcji;
+    private long idPrelekcji;
 
-    public long getId_prelekcji() {
-        return id_prelekcji;
+    public long getIdPrelekcji() {
+        return idPrelekcji;
     }
 
-    public void setId_prelekcji(long id_prelekcji) {
-        this.id_prelekcji = id_prelekcji;
+    public void setIdPrelekcji(long idPrelekcji) {
+        this.idPrelekcji = idPrelekcji;
     }
 
     public String getEmail() {
@@ -61,9 +61,12 @@ public class User {
         this.login = login;
     }
 
-    public User (String login, String email){
+    public User (String login, String email, String sciezka, long idPrelekcji){
         this.login=login;
         this.email=email;
+        this.sciezka=sciezka;
+        this.idPrelekcji=idPrelekcji;
     }
+
 
 }
