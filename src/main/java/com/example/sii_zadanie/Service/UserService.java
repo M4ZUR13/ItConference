@@ -32,12 +32,15 @@ public class UserService {
     public List<User> specificUser(String login){
 
         return repository.findByLogin(login);
-
     }
 
 
     public List<User> numberOfUsers(long idPre){
         return repository.findByIdPrelekcji(idPre);
+    }
+
+    public boolean findEmail(String email){
+        return repository.findByEmail(email);
     }
 
 

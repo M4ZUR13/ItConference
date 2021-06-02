@@ -4,7 +4,6 @@ package com.example.sii_zadanie.Controller;
 import com.example.sii_zadanie.User.User;
 import com.example.sii_zadanie.Service.UserService;
 import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.File;
@@ -37,8 +36,11 @@ public class Controller {
         zapis.println(user.getEmail());
         zapis.println("Zostales poprawnie zapisany na prelekcje!");
         zapis.close();
-       if((userService.numberOfUsers(user.getIdPrelekcji()).size())!=5)
-        userService.addUser(user);
+
+        if ((userService.numberOfUsers(user.getIdPrelekcji()).size()) != 5 && user.getIdPrelekcji()>0 && user.getIdPrelekcji()<4)
+                userService.addUser(user);
+
+
 
     }
 
